@@ -14,6 +14,7 @@ namespace CS4455.Utility
         private const string OSX_DIR = "OSX";
 
 
+        [SerializeField] private string targetUnityVersion = "2020.3.34f1";
         [SerializeField] private string assignmentCode = "m1";
         [SerializeField] private Text guiText;
         [SerializeField] private string lastName;
@@ -24,6 +25,8 @@ namespace CS4455.Utility
 
         private Text text;
         private Canvas canvas;
+
+        private string unityVersion;
 
         private void Awake()
         {
@@ -36,6 +39,7 @@ namespace CS4455.Utility
         private void Start()
         {  
             text.text = GetAudit();
+
         }
 
         //private bool DoesPossiblyHiddenDirectoryExist(string path)
@@ -79,6 +83,15 @@ namespace CS4455.Utility
                 // lastNameValid allowed to have other capitalized letters for complex names
                 string lastNameValid = "";
                 var firstInitialValid = "";
+
+                unityVersion = Application.unityVersion;
+
+                //Debug.Log($"Unity version is: {unityVersion}");
+
+                if (!unityVersion.Equals(targetUnityVersion))
+                {
+                    auditErrors.Add($"• Prj not built with target Unity version: {targetUnityVersion}");
+                }
 
                 if (!disableNameChecks)
                 {
@@ -335,7 +348,13 @@ namespace CS4455.Utility
                 return CombineAuditError();
             }
 
-            string CombineAuditError() { return string.Join("\n", auditErrors); }
+           
+
+            string CombineAuditError() {
+                var ret = $"Unity version: { unityVersion}\n";
+                ret += string.Join($"\n", auditErrors);
+                return ret;
+            }
         }
 
         private static string GetOperatingSystemDirectory()
