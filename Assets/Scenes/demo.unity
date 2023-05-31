@@ -8862,6 +8862,9 @@ MonoBehaviour:
   buttonCloseEnoughForPressAngleDegrees: 5
   initalMatchTargetsAnimTime: 0
   exitMatchTargetsAnimTime: 0
+  animationSpeed: 1
+  rootMovementSpeed: 1
+  rootTurnSpeed: 1
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 0
 --- !u!114 &966225177
@@ -11570,6 +11573,9 @@ MonoBehaviour:
   buttonCloseEnoughForPressAngleDegrees: 5
   initalMatchTargetsAnimTime: 0
   exitMatchTargetsAnimTime: 0
+  animationSpeed: 1
+  rootMovementSpeed: 1.1
+  rootTurnSpeed: 2
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 1
 --- !u!136 &1331787735
