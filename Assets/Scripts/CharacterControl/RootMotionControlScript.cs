@@ -26,6 +26,10 @@ public class RootMotionControlScript : MonoBehaviour
     public float initalMatchTargetsAnimTime = 0.25f;
     public float exitMatchTargetsAnimTime = 0.75f;
 
+    public float animationSpeed = 1f;
+    public float rootMovementSpeed = 1f;
+    public float rootTurnSpeed = 1f;
+
 
     // classic input system only polls in Update()
     // so must treat input events like discrete button presses as
@@ -106,6 +110,8 @@ public class RootMotionControlScript : MonoBehaviour
 
         bool doButtonPress = false;
         bool doMatchToButtonPress = false;
+
+        anim.speed = animationSpeed;
 
         //onCollisionXXX() doesn't always work for checking if the character is grounded from a playability perspective
         //Uneven terrain can cause the player to become technically airborne, but so close the player thinks they're touching ground.
@@ -212,6 +218,8 @@ public class RootMotionControlScript : MonoBehaviour
         newRootRotation = anim.rootRotation;
 
         //TODO Here, you could scale the difference in position and rotation to make the character go faster or slower
+        newRootPosition = Vector3.LerpUnclamped(this.transform.position, newRootPosition, rootMovementSpeed);
+        newRootRotation = Quaternion.LerpUnclamped(this.transform.rotation, newRootRotation, rootTurnSpeed);
 
         // old way
         //this.transform.position = newRootPosition;
