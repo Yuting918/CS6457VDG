@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.036
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15157557, g: 0.15234214, b: 0.14749622, a: 0.036}
+  m_IndirectSpecularColor: {r: 0.15157014, g: 0.15233368, b: 0.14749667, a: 0.036}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -843,7 +843,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'George P. Burdell <-- Not your name, change it!
+  m_Text: 'Yuting Qiu
 
 '
 --- !u!222 &78144232
