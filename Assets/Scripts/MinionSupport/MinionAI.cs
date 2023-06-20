@@ -12,7 +12,7 @@ public class MinionAI : MonoBehaviour
     public enum MinionState {Patrol,Chase};
     private MinionState currentState;
     public VelocityReporter movingWaypointVelocity;
-    float lookaheadTime = 6.0f; 
+    float lookaheadTime = 4.0f; 
     public Vector3 predictedPosition;
     public bool isCatached;
     public bool isChasing;
@@ -59,6 +59,8 @@ public class MinionAI : MonoBehaviour
                     currentState = MinionState.Patrol;
                     Debug.LogError("Catched");
                     currWaypoint = -1;
+                    setNextWaypoint();
+                    break;
                 }
                 break;
         }
